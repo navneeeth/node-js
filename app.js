@@ -19,13 +19,17 @@
 // sayHi();
 
 //function expresssion
-var sayBye = function(){
-  console.log('Bye');
-};
-sayBye();
+// var sayBye = function(){
+//   console.log('Bye');
+// };
+// sayBye();
+//
+// function callFunction(fun) {
+//   fun();
+// }
+//
+// callFunction(sayBye);
 
-function callFunction(fun) {
-  fun();
-}
+var counter = require('./count');
 
-callFunction(sayBye);
+console.log(counter(['shaun', 'crystal', 'ryu']));
