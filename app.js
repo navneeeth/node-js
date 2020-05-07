@@ -111,10 +111,12 @@
 //
 // server.listen(3000, '127.0.0.1');
 // console.log("Yo dawgs, now listening to port 3000!");
+
 var http = require('http');
 var fs = require('fs');
+var myWriteStream = fs.createWriteStream(__dirname + '/writeMe.txt');
 var myReadStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8');
 myReadStream.on('data', function(chunk) {
-  console.log('New chunk received:');
-  console.log(chunk);
+  console.log('New chunk received!');
+  myWriteStream.write(chunk);
 });
