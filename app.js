@@ -68,16 +68,36 @@
 // james.emit('speak', 'hey dudes');
 // ryu.emit('speak', 'I want a curry');
 //reading from a file synchronously.
+// var fs = require('fs');
+// var readMe = fs.readFileSync('readme.txt', 'utf8');
+// //the readFileSync method does not proceed until read is complete.
+// console.log(readMe);
+// //writing to a file synchronously.
+// fs.writeFileSync('writeme.txt', readMe);
+// //reading and writing asynchronously.
+// fs.readFile('readme.txt', 'utf8', function(err, data) {
+//   //console.log(data);
+//   fs.writeFile('writeme2.txt', data, function(err, data) {
+//     console.log(data);
+//   });
+// });
 var fs = require('fs');
-var readMe = fs.readFileSync('readme.txt', 'utf8');
-//the readFileSync method does not proceed until read is complete.
-console.log(readMe);
-//writing to a file synchronously.
-fs.writeFileSync('writeme.txt', readMe);
-//reading and writing asynchronously.
-fs.readFile('readme.txt', 'utf8', function(err, data) {
-  //console.log(data);
-  fs.writeFile('writeme2.txt', data, function(err, data) {
-    console.log(data);
-  });
+// fs.unlink('writeme2.txt', function(err) {
+//   if(err) throw err;
+//   console.log('File deleted!');
+// });
+//synchronously
+//fs.mkdirSync('stuff');
+//fs.rmdirSync('stuff');
+//asynchronously
+// fs.mkdir('stuff', function() {
+//   fs.readFile('readMe.txt', function(err, data) {
+//     fs.writeFile('./stuff/writeMe.txt', data, function(err, data){
+//       if(err) throw err;
+//       console.log("File written in new directory!");
+//     });
+//   });
+// });
+fs.unlink('./stuff/writeMe.txt', function() {
+  fs.rmdir('stuff', function() {});
 });
