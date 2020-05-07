@@ -81,7 +81,7 @@
 //     console.log(data);
 //   });
 // });
-var fs = require('fs');
+//var fs = require('fs');
 // fs.unlink('writeme2.txt', function(err) {
 //   if(err) throw err;
 //   console.log('File deleted!');
@@ -98,6 +98,16 @@ var fs = require('fs');
 //     });
 //   });
 // });
-fs.unlink('./stuff/writeMe.txt', function() {
-  fs.rmdir('stuff', function() {});
+// fs.unlink('./stuff/writeMe.txt', function() {
+//   fs.rmdir('stuff', function() {});
+// });
+var http = require('http');
+
+var server = http.createServer(function(req, res) {
+  console.log("Request was made: " +req.url);
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hey ninjas!');
 });
+
+server.listen(3000, '127.0.0.1');
+console.log("Yo dawgs, now listening to port 3000!");
