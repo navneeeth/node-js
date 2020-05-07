@@ -122,20 +122,33 @@
 // });
 
 //16
+// var http = require('http');
+// var fs = require('fs');
+// // var myWriteStream = fs.createWriteStream(__dirname + '/writeMe2.txt');
+// // var myReadStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8');
+// // myReadStream.pipe(myWriteStream);
+//
+// var server = http.createServer(function(req, res) {
+//   console.log('Request was made: ' + req.url);
+//   res.writeHead(200, {'Content-Type': 'text/plain'});
+//   var myReadStream = fs.createReadStream(__dirname + '/readMe.txt', 'utf-8');
+//   //var myWriteStream = fs.createWriteStream(__dirname + '/writeMe3.txt');
+//   //myReadStream.pipe(myWriteStream);
+//   myReadStream.pipe(res);
+//   //res.end('Hey ninjas!';)
+// });
+//
+// server.listen(3000, '127.0.0.1');
+// console.log("Yo dawgs, now listening to port 3000");
+
+//17 Serving HTML Pages
 var http = require('http');
 var fs = require('fs');
-// var myWriteStream = fs.createWriteStream(__dirname + '/writeMe2.txt');
-// var myReadStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8');
-// myReadStream.pipe(myWriteStream);
-
 var server = http.createServer(function(req, res) {
   console.log('Request was made: ' + req.url);
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  var myReadStream = fs.createReadStream(__dirname + '/readMe.txt', 'utf-8');
-  //var myWriteStream = fs.createWriteStream(__dirname + '/writeMe3.txt');
-  //myReadStream.pipe(myWriteStream);
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf-8');
   myReadStream.pipe(res);
-  //res.end('Hey ninjas!';)
 });
 
 server.listen(3000, '127.0.0.1');
