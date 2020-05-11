@@ -235,6 +235,31 @@
 // app.listen(3000);
 
 //26 Template Engines Part 2
+// var express = require('express');
+// var app = express();
+// //used to set the view engine to ejs.
+// //Created a new folder called views with the dot ejs file
+// //called as "profile".
+// app.set('view engine', 'ejs');
+// app.get('/', function(req, res) {
+//   //app dot get single slash will now return the index file.
+//   res.sendFile(__dirname + '/index.html');
+// });
+// app.get('/contact', function(req, res) {
+//   //app dot get single slash and contact will now return the contact file.
+//   res.sendFile(__dirname + '/contact.html');
+// });
+// app.get('/profile/:name', function(req, res) {
+//   //retrieving the data through the response dot render function that takes
+//   //an object as a parameter containing the values. The colon followed by
+//   //identifier is collected as data and can be accessed from req.params.
+//   //identifier which can be used to display from the ejs file.
+//   var data = {age: 29, job: 'ninja', hobbies: ['eating', 'fishing', 'reading']};
+//   res.render('profile', {person: req.params.name, data: data});
+// });
+// app.listen(3000);
+
+//27 Partial Templates
 var express = require('express');
 var app = express();
 //used to set the view engine to ejs.
@@ -243,11 +268,13 @@ var app = express();
 app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
   //app dot get single slash will now return the index file.
-  res.sendFile(__dirname + '/index.html');
+  //since we have created ejs files for index and contact,
+  //we render it now instead of sending file.
+  res.render('index');
 });
 app.get('/contact', function(req, res) {
   //app dot get single slash and contact will now return the contact file.
-  res.sendFile(__dirname + '/contact.html');
+  res.render('contact');
 });
 app.get('/profile/:name', function(req, res) {
   //retrieving the data through the response dot render function that takes
