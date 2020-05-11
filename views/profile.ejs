@@ -10,10 +10,16 @@
     </head>
     <body>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen align="right"></iframe>
-        <!-- The EJS file can access data objects between <%= and %> tags. -->
+        <!-- The EJS file can access data objects between < % equal to and %> tags. -->
         <h1>Welcome to the profile of <%= person %>!</h1>
         <h2>Age: <%= data.age %></h2>
         <h2>Job: <%= data.job %></h2>
+        <h2>Hobbies</h2>
+        <ul>
+          <% data.hobbies.forEach(function(item) { %>
+            <li><%= item %></li>
+          <% }); %>
+        </ul>
         <img src="earth.jpg" width="400">
         <p>Earth is the third planet from the Sun and is the largest of the terrestrial planets. The Earth is the only planet in our solar system not to be named after a Greek or Roman deity. The Earth was formed approximately 4.54 billion years ago and is the only known planet to support life.</p>
         <hr>

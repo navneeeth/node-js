@@ -210,6 +210,31 @@
 // app.listen(3000);
 
 //25 Template Engines
+// var express = require('express');
+// var app = express();
+// //used to set the view engine to ejs.
+// //Created a new folder called views with the dot ejs file
+// //called as "profile".
+// app.set('view engine', 'ejs');
+// app.get('/', function(req, res) {
+//   //app dot get single slash will now return the index file.
+//   res.sendFile(__dirname + '/index.html');
+// });
+// app.get('/contact', function(req, res) {
+//   //app dot get single slash and contact will now return the contact file.
+//   res.sendFile(__dirname + '/contact.html');
+// });
+// app.get('/profile/:name', function(req, res) {
+//   //retrieving the data through the response dot render function that takes
+//   //an object as a parameter containing the values. The colon followed by
+//   //identifier is collected as data and can be accessed from req.params.
+//   //identifier which can be used to display from the ejs file.
+//   var data = {age: 29, job: 'ninja'};
+//   res.render('profile', {person: req.params.name, data: data});
+// });
+// app.listen(3000);
+
+//26 Template Engines Part 2
 var express = require('express');
 var app = express();
 //used to set the view engine to ejs.
@@ -229,7 +254,7 @@ app.get('/profile/:name', function(req, res) {
   //an object as a parameter containing the values. The colon followed by
   //identifier is collected as data and can be accessed from req.params.
   //identifier which can be used to display from the ejs file.
-  var data = {age: 29, job: 'ninja'};
+  var data = {age: 29, job: 'ninja', hobbies: ['eating', 'fishing', 'reading']};
   res.render('profile', {person: req.params.name, data: data});
 });
 app.listen(3000);
