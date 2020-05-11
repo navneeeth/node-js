@@ -195,16 +195,41 @@
 // server.listen(3000, '127.0.0.1');
 // console.log("Yo dawgs, now listening to port 3000");
 
-//23 Introduction to Express
+//23 Introduction to Express and 24
+// var express = require('express');
+// var app = express();
+// app.get('/', function(req, res) {
+//   res.send('this is the homepage');
+// });
+// app.get('/contact', function(req, res) {
+//   res.send('This is the contact page');
+// });
+// app.get('/profile/:id', function(req, res) {
+//   res.send('You requested to see a profile with the id of ' + req.params.id);
+// });
+// app.listen(3000);
+
+//25 Template Engines
 var express = require('express');
 var app = express();
+//used to set the view engine to ejs.
+//Created a new folder called views with the dot ejs file
+//called as "profile".
+app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
-  res.send('this is the homepage');
+  //app dot get single slash will now return the index file.
+  res.sendFile(__dirname + '/index.html');
 });
 app.get('/contact', function(req, res) {
-  res.send('This is the contact page');
+  //app dot get single slash and contact will now return the contact file.
+  res.sendFile(__dirname + '/contact.html');
 });
-app.get('/profile/:id', function(req, res) {
-  res.send('You requested to see a profile with the id of ' + req.params.id);
+app.get('/profile/:name', function(req, res) {
+  //retrieving the data through the response dot render function that takes
+  //an object as a parameter containing the values. The colon followed by
+  //identifier is collected as data and can be accessed from req.params.
+  //identifier which can be used to display from the ejs file.
+  var data = {age: 29, job: 'ninja'};
+  res.render('profile', {person: req.params.name, data: data});
 });
 app.listen(3000);
